@@ -1,0 +1,39 @@
+apply plugin: 'java'
+defaultTasks 'clean', 'test'
+sourceSets {
+  main {
+    java {srcDir 'src'}
+    resources {srcDir 'src'}
+  }
+  test {
+    java {srcDir 'test'}
+    resources {srcDir 'test'}
+  }
+}
+
+repositories{
+  mavenCentral()
+}
+
+dependencies {
+  testCompile 'com.codeborne:selenide:4.9'
+  testCompile 'junit:junit:4.12'
+}
+
+task libs(type: Sync) {
+  from configurations.testCompile
+  from configurations.testRuntime
+  into "$buildDir/lib"
+}
+
+compileJava.dependsOn libs
+
+[compileJava, compileTestJava]*.options.collect {options -> options.encoding = 'UTF-8'}
+[compileJava, compileTestJava]*.options.collect {options -> options.debug = true}
+
+test {
+  systemProperties 'file.encoding': 'UTF-8'
+  systemProperties['browser'] = 'chrome'
+  systemProperties['BUILD_URL'] = System.getenv()['BUILD_URL']
+  testLogging.showStandardStreams = true
+}
