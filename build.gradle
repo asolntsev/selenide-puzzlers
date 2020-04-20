@@ -16,8 +16,9 @@ repositories{
 }
 
 dependencies {
-  testCompile 'com.codeborne:selenide:5.10.0'
+  testCompile 'com.codeborne:selenide:5.11.0'
   testCompile 'junit:junit:4.13'
+  testRuntimeOnly('org.slf4j:slf4j-simple:1.7.30')
 }
 
 task libs(type: Sync) {
