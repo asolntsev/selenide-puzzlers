@@ -1,6 +1,5 @@
 package org.selenide.puzzlers;
 
-import com.codeborne.selenide.Selenide;
 import org.junit.Before;
 import org.junit.Test;
 

@@ -16,14 +16,13 @@ repositories{
 }
 
 dependencies {
-  testCompile 'com.codeborne:selenide:5.22.3'
-  testCompile 'junit:junit:4.13.2'
-  testRuntimeOnly('org.slf4j:slf4j-simple:1.7.31')
+  testImplementation 'com.codeborne:selenide:5.22.3'
+  testImplementation 'junit:junit:4.13.2'
+  testRuntimeOnly 'org.slf4j:slf4j-simple:1.7.31'
 }
 
 task libs(type: Sync) {
-  from configurations.testCompile
-  from configurations.testRuntime
+  from configurations.testRuntimeClasspath
   into "$buildDir/lib"
 }
 
