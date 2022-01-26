@@ -18,7 +18,7 @@ repositories{
 dependencies {
   testImplementation 'com.codeborne:selenide:6.2.1'
   testImplementation 'junit:junit:4.13.2'
-  testRuntimeOnly 'org.slf4j:slf4j-simple:1.7.33'
+  testRuntimeOnly 'org.slf4j:slf4j-simple:1.7.35'
 }
 
 task libs(type: Sync) {
