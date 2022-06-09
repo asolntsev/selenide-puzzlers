@@ -16,7 +16,7 @@ repositories{
 }
 
 dependencies {
-  testImplementation 'com.codeborne:selenide:6.5.2'
+  testImplementation 'com.codeborne:selenide:6.6.0'
   testImplementation 'junit:junit:4.13.2'
   testRuntimeOnly 'org.slf4j:slf4j-simple:1.7.36'
 }
