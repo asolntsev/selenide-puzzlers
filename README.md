@@ -14,5 +14,3 @@ https://drive.google.com/file/d/1Vv12Gl3CjQnh46QUwtnvaRJy8JjCJov3/view
 ### How to open project in IDEA
 
 Just open the folder `selenide-puzzlers` in IDEA. It already contains IDEA project files. 
-
-[![Build Status](https://travis-ci.org/asolntsev/selenide-puzzlers.png)](https://travis-ci.org/asolntsev/selenide-puzzlers)
