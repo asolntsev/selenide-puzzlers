@@ -16,4 +16,23 @@ jobs:
           cache: 'gradle'
           java-version: '17'
       - name: Build with Gradle
-        run: ./gradlew classes testClasses --no-daemon --console=plain -i
+        uses: gradle/gradle-build-action@v2
+        with:
+          arguments: classes testClasses --no-daemon --console=plain -i
+
+  auto-merge-dependabot:
+    name: 🤖 Auto merge dependabot PR
+    timeout-minutes: 10
+    needs: [compile-java-code]
+    if: ${{ github.actor == 'dependabot[bot]' }}
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+      contents: write
+    steps:
+      - name: 🤖 Merge PR from dependabot
+        uses: fastify/github-action-merge-dependabot@v3.6.2
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          target: minor
+          merge-method: rebase
