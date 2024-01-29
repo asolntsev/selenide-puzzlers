@@ -16,7 +16,7 @@ jobs:
           cache: 'gradle'
           java-version: '17'
       - name: Build with Gradle
-        uses: gradle/gradle-build-action@v2
+        uses: gradle/gradle-build-action@v3
         with:
           arguments: classes testClasses --no-daemon --console=plain -i
 
